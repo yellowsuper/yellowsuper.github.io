@@ -144,103 +144,43 @@
         <h2 id="spring-data-Jpa"><a href="#spring-data-Jpa" class="headerlink" title="spring data Jpa"></a>spring data Jpa</h2><p><a href="https://spring.io/projects/spring-data-jpa" target="_blank" rel="noopener">官网</a><br>Spring Data JPA是Spring Data的子模块。JPA诞生的缘由是为了整合第三方ORM框架，建立一种标准的方式，使用Spring-data-jpa进行开发的过程中，常用的功能，我们几乎不需要写一条sql语句</p>
 <ol>
 <li><p>搭建springboot环境</p>
-<p><code>&lt;!-- springdata jpa依赖 --&gt;</code></p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre></li>
-<li><p>配置文件<br><code>### Java Persistence Api</code><br><code>########################################################</code><br><code># Specify the DBMS</code><br><code>spring.jpa.database = MYSQL</code><br><code># Show or not log for each sql query</code><br><code>spring.jpa.show-sql = true</code><br><code># Hibernate ddl auto (create, create-drop, update)</code><br><code>spring.jpa.hibernate.ddl-auto = update</code><br><code># Naming strategy</code><br><code>#[org.hibernate.cfg.ImprovedNamingStrategy</code>            <code>#org.hibernate.cfg.DefaultNamingStrategy]</code><br><code>spring.jpa.hibernate.naming-strategy =</code> <code>org.hibernate.cfg.ImprovedNamingStrategy</code><br><code># stripped before adding them to the entity manager)</code><br><code>spring.jpa.properties.hibernate.dialect =</code> <code>org.hibernate.dialect.MySQL5Dialect</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- springdata jpa依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>持久层</p>
+<li><p>配置文件  </p>
 </li>
 </ol>
-<p><code>import org.springframework.data.repository.CrudRepository;</code><br><code>import com.xujie.pojo.Target;</code><br><code>public interface TargetRepository extends CrudRepository&lt;Target,Integer&gt;{}</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">### Java Persistence Api</span><br><span class="line">########################################################</span><br><span class="line"># Specify the DBMS</span><br><span class="line">spring.jpa.database = MYSQL</span><br><span class="line"># Show or not log for each sql query</span><br><span class="line">spring.jpa.show-sql = true</span><br><span class="line"># Hibernate ddl auto (create, create-drop, update)</span><br><span class="line">spring.jpa.hibernate.ddl-auto = update</span><br><span class="line"># Naming strategy</span><br><span class="line">#[org.hibernate.cfg.ImprovedNamingStrategy          #org.hibernate.cfg.DefaultNamingStrategy]</span><br><span class="line">spring.jpa.hibernate.naming-strategy =org.hibernate.cfg.ImprovedNamingStrategy</span><br><span class="line"># stripped before adding them to the entity manager)</span><br><span class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>持久层</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.data.repository.CrudRepository;</span><br><span class="line"><span class="keyword">import</span> com.xujie.pojo.Target;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TargetRepository</span> <span class="keyword">extends</span> <span class="title">CrudRepository</span>&lt;<span class="title">Target</span>,<span class="title">Integer</span>&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>Entity</li>
 </ol>
-<p><code>import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-@Entity(name=&quot;target&quot;)  
-    public class Target {
-    @Id 
-    @GeneratedValue 
-    private int tid;
-    @Column(name=&quot;tname&quot;,length=20)  
-    private String tname;
-    public int getTid() {
-        return tid;
-    }
-    public void setTid(int tid) {
-        this.tid = tid;
-    }
-    public String getTname() {
-        return tname;
-    }
-    public void setTname(String tname) {
-        this.tname = tname;
-    }
-    @Override
-    public String toString() {
-        return &quot;Target [tid=&quot; + tid + &quot;, tname=&quot; + tname + &quot;]&quot;;
-    }
-}</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.persistence.Column;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Entity;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.GeneratedValue;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Id;</span><br><span class="line"><span class="meta">@Entity</span>(name=<span class="string">"target"</span>)  </span><br><span class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Target</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span> </span><br><span class="line">    <span class="meta">@GeneratedValue</span> </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> tid;</span><br><span class="line">    <span class="meta">@Column</span>(name=<span class="string">"tname"</span>,length=<span class="number">20</span>)  </span><br><span class="line">    <span class="keyword">private</span> String tname;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTid</span><span class="params">(<span class="keyword">int</span> tid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tid = tid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tname;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTname</span><span class="params">(String tname)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.tname = tname;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Target [tid="</span> + tid + <span class="string">", tname="</span> + tname + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>service</li>
 </ol>
-<p><code>import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
-import com.xujie.pojo.Target;
-import com.xujie.repository.TargetRepository;
-import com.xujie.service.TargetService;
-@Service
-public class TargetServiceimpl implements TargetService {
-    // @Resource是根据名称注入 @Autowired是根据类型注入
-    @Resource
-    private TargetRepository targetRepository;
-    //添加
-    @Override
-    public void save(Target target) {
-        this.targetRepository.save(target);
-    }
-    //删除
-    @Override
-    public void delete(Integer id) {
-        this.targetRepository.delete(id);
-    }
-    //查询
-    @Override
-    public List&lt;Target&gt; findAll(){
-        return (List&lt;Target&gt;) this.targetRepository.findAll();
-    }
-}</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> com.xujie.pojo.Target;</span><br><span class="line"><span class="keyword">import</span> com.xujie.repository.TargetRepository;</span><br><span class="line"><span class="keyword">import</span> com.xujie.service.TargetService;</span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TargetServiceimpl</span> <span class="keyword">implements</span> <span class="title">TargetService</span> </span>&#123;</span><br><span class="line">    <span class="comment">// @Resource是根据名称注入 @Autowired是根据类型注入</span></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> TargetRepository targetRepository;</span><br><span class="line">    <span class="comment">//添加</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(Target target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.targetRepository.save(target);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//删除</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.targetRepository.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//查询</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Target&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (List&lt;Target&gt;) <span class="keyword">this</span>.targetRepository.findAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h2><p><a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">官网</a></p>
 <ol>
-<li>环境<br><code>&lt;dependency&gt;
-&lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
-&lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
-&lt;version&gt;1.3.1&lt;/version&gt;
-&lt;/dependency&gt;</code></li>
-<li>xml配置<br><code>mybatis.mapper-locations=classpath*:mapper/**/*.xml</code><br><code>#扫描pojo类的位置,在此处指明扫描实体类的包，在mapper中就可   以不用写pojo类的全路径名了
-mybatis.type-aliases-package=com.cuit</code></li>
-<li>dao</li>
+<li><p>环境</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>xml配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mybatis.mapper-locations=classpath*:mapper/**/*.xml</span><br><span class="line">  #扫描pojo类的位置,在此处指明扫描实体类的包，在mapper中就可   以不用写pojo类的全路径名了</span><br><span class="line">  mybatis.type-aliases-package=com.**</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dao</p>
+</li>
 </ol>
-<p><code>@Mapper//加上该注解才能使用@MapperScan扫描到也可用@repository
-public interface UserDao {
-    User getUserById(@Param(&quot;id&quot;) int id);
-    int updateUser(@Param(&quot;user&quot;) User user);
-    int insertUser(@Param(&quot;user&quot;) User user);
-    int deleteUserById(@Param(&quot;id&quot;) int id);
-}</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span><span class="comment">//加上该注解才能使用@MapperScan扫描到也可用@repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="function">User <span class="title">getUserById</span><span class="params">(@Param(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateUser</span><span class="params">(@Param(<span class="string">"user"</span>)</span> User user)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insertUser</span><span class="params">(@Param(<span class="string">"user"</span>)</span> User user)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteUserById</span><span class="params">(@Param(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>##mybatis与jpa对比<br>mybatis官方文档就说了他是一个半自动化的持久层框架，相对于按自动的jpa更灵活，需要写sql<br>springDataJpa是对repository的封装，简化了repository的操作。JPA默认使用hibernate作为ORM实现</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2018/12/18/h2/" data-id="cjptqphdc000230mdq4fclmah" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2018/12/18/h2/" data-id="cjpulhke60000csmdghcxm6tv" class="article-share-link">Share</a>
       
 
       
@@ -290,7 +230,7 @@ public interface UserDao {
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2018/12/17/h1/" data-id="cjptqphd1000030mdlq8i8xvu" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2018/12/17/h1/" data-id="cjpulhken0002csmd8ysyh0rm" class="article-share-link">Share</a>
       
 
       
@@ -340,7 +280,7 @@ public interface UserDao {
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2018/12/14/hello-world/" data-id="cjptqphdg000330md3gj4gz0m" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2018/12/14/hello-world/" data-id="cjpulhkef0001csmd1iz9mc0v" class="article-share-link">Share</a>
       
 
       
