@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>黄超的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="xfire与jaxb发布webservicejaxb转自 https://herbaceous.iteye.com/blog/2096897  +++ xfire转自 https://blog.csdn.net/bestxiaok/article/details/76034018   +++ xfire与jaxb的结合实例一、 用xfire发布WebService 1、完成接口、实现类以及相关的b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黄超的博客">
+<meta property="og:url" content="http://yoursite.com/2018/12/24/h4/index.html">
+<meta property="og:site_name" content="黄超的博客">
+<meta property="og:description" content="xfire与jaxb发布webservicejaxb转自 https://herbaceous.iteye.com/blog/2096897  +++ xfire转自 https://blog.csdn.net/bestxiaok/article/details/76034018   +++ xfire与jaxb的结合实例一、 用xfire发布WebService 1、完成接口、实现类以及相关的b">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-24T03:59:35.306Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="黄超的博客">
+<meta name="twitter:description" content="xfire与jaxb发布webservicejaxb转自 https://herbaceous.iteye.com/blog/2096897  +++ xfire转自 https://blog.csdn.net/bestxiaok/article/details/76034018   +++ xfire与jaxb的结合实例一、 用xfire发布WebService 1、完成接口、实现类以及相关的b">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/timg.jpg" alt="Profile Picture">
+      </div>
+      <div id="title">黄超的博客</div>
+      
+       <ul class="my-socials">
+  
+  <li>
+  	<a href="https://github.com/yellowsuper" class="github" target="_blank">
+  		<i class="fa fa-github"></i>
+  	</a>
+  </li>
+  
+  <li>
+  	<a href="http://weibo.com/u/3160986480" class="weibo" target="_blank">
+  		<i class="fa fa-weibo"></i>
+  	</a>
+  </li>
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          
+            <a class="main-nav-link" href="/">首页</a>
+          
+            <a class="main-nav-link" href="/category">技术</a>
+          
+            <a class="main-nav-link" href="/archives">归档</a>
+          
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">黄超的博客</a>
+      <img src="/timg.jpg" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+          <a href="https://github.com/yellowsuper" class="github" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+        
+          <a href="http://weibo.com/u/3160986480" class="weibo" target="_blank">
+            <i class="fa fa-weibo"></i>
+          </a>
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+        <input type="submit" value="" class="search-form-submit">
+        <input name="tn" type="hidden" value="bds">
+        <input name="cl" type="hidden" value="3">
+        <input name="ct" type="hidden" value="2097152">
+        <input type="hidden" name="si" value="yoursite.com">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+      
+      
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/category">技术</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-h4" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/24/h4/" class="article-date">
+  <time datetime="2018-12-24T03:40:38.091Z" itemprop="datePublished">2018-12-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="xfire与jaxb发布webservice"><a href="#xfire与jaxb发布webservice" class="headerlink" title="xfire与jaxb发布webservice"></a>xfire与jaxb发布webservice</h1><h2 id="jaxb"><a href="#jaxb" class="headerlink" title="jaxb"></a>jaxb</h2><p>转自 <a href="https://herbaceous.iteye.com/blog/2096897" target="_blank" rel="noopener">https://herbaceous.iteye.com/blog/2096897</a> </p>
+<p>+++</p>
+<h2 id="xfire"><a href="#xfire" class="headerlink" title="xfire"></a>xfire</h2><p>转自 <a href="https://blog.csdn.net/bestxiaok/article/details/76034018" target="_blank" rel="noopener">https://blog.csdn.net/bestxiaok/article/details/76034018</a>  </p>
+<p>+++</p>
+<h2 id="xfire与jaxb的结合实例"><a href="#xfire与jaxb的结合实例" class="headerlink" title="xfire与jaxb的结合实例"></a>xfire与jaxb的结合实例</h2><p>一、 用xfire发布WebService</p>
+<p>1、完成接口、实现类以及相关的bean代码编写</p>
+<p>接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebService</span>(name = <span class="string">"HellowWord"</span>, targetNamespace = <span class="string">"http://webserviceDemo/schema/HelloWord/"</span>)</span><br><span class="line"><span class="meta">@SOAPBinding</span>(use = SOAPBinding.Use.LITERAL, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)</span><br><span class="line">publicinterface HellowWord</span><br><span class="line">&#123;</span><br><span class="line">    <span class="meta">@WebMethod</span>(operationName = <span class="string">"sayHellow"</span>, action = <span class="string">""</span>)</span><br><span class="line">    <span class="function">publicvoid <span class="title">sayHellow</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    @WebParam(name = <span class="string">"user"</span>, targetNamespace = <span class="string">""</span>)</span> User user)</span>;</span><br><span class="line">    <span class="meta">@WebMethod</span>(operationName = <span class="string">"sayAllHellow"</span>, action = <span class="string">""</span>)</span><br><span class="line">	<span class="function">publicvoid <span class="title">sayAllHellow</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	 @WebParam(name = <span class="string">"users"</span>, targetNamespace = <span class="string">""</span>)</span> List&lt;User&gt; users)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebService</span>(name = <span class="string">"HellowWord"</span>, targetNamespace = <span class="string">"http://webserviceDemo/schema/HelloWord/"</span>)</span><br><span class="line">publicclass HelloWordImpl implements HellowWord</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">publicvoid <span class="title">sayAllHellow</span><span class="params">(List&lt;User&gt; users)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == users || users.size() &lt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">"No people!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (User user : users)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(user.getUserName() + <span class="string">" hellow!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">publicvoid <span class="title">sayHellow</span><span class="params">(User user)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == user)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">"No people!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(user.getUserName() + <span class="string">" hellow!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>自定义bean：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@XmlAccessorType(XmlAccessType.FIELD)</span><br><span class="line">@XmlRootElement</span><br><span class="line">@XmlType(name = &quot;User&quot;, propOrder = &#123; &quot;userName&quot;, &quot;age&quot;, &quot;gender&quot; &#125;)</span><br><span class="line">public class User</span><br><span class="line">&#123;	</span><br><span class="line">	@XmlElement</span><br><span class="line">    private String userName;</span><br><span class="line">    @XmlElement</span><br><span class="line">    private int age;</span><br><span class="line">    @XmlElement</span><br><span class="line">    private String gender;</span><br><span class="line">    // get\set方法略  </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、导入Xfire相关jar包</p>
+<p>将已下载的相关xfire所有jar包导入工程（jar包没有按功能区分，有兴趣可以自己研究），本工程的导入方式为，在工程的最上层目录下新建一个lib/xfire目录，将相关jar包拷入该目录，本工程是用Eclips开发的，所以将本工程的.settings/org.eclipse.wst.common.component中添加上<code>&lt;wb-resource deploy-path=&quot;/WEB-INF/lib&quot; source-path=&quot;/lib/xfire&quot;/&gt;</code>，最后执行导入工作，这样做有助于对工程不同功能的jar包进行管理。</p>
+<p>3、添加xfire的配置文件</p>
+<p>配置文件添加方法一：</p>
+<p>在工程的src目录下新建META-INF\xfire\services.xml文件。</p>
+<p>配置文件添加方法二：</p>
+<p>​    该方法可以让工程的结构层次更清晰，在工程的最上层目录下新建conf\META-INF\xfire\services.xml文件，然后将conf目录下的内容设置为编译至WebRoot\WEB-INF\classes目录下即可，其实不论配置文件放在什么地方只要工程编译完成后，在WebRoot\WEB-INF\classes目录中有META-INF\xfire\services.xml即可。</p>
+<p>4、完成services.xml配置</p>
+<p>本工程配置示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://xfire.codehaus.org/config/1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">service</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>HellWord<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">namespace</span>&gt;</span>http://webserviceDemo/schema/HelloWord/<span class="tag">&lt;/<span class="name">namespace</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">serviceClass</span>&gt;</span>server.spi.HellowWord<span class="tag">&lt;/<span class="name">serviceClass</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">implementationClass</span>&gt;</span>server.impl.HelloWordImpl<span class="tag">&lt;/<span class="name">implementationClass</span>&gt;</span>  <span class="tag">&lt;<span class="name">serviceFactory</span>&gt;</span>org.codehaus.xfire.jaxb2.JaxbServiceFactory<span class="tag">&lt;/<span class="name">serviceFactory</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>配置文件解释：</p>
+<p><code>&lt;name&gt;</code>服务的名称<code>&lt;/name&gt;</code></p>
+<p><code>&lt;namespace&gt;</code>命名空间<code>&lt;/namespace&gt;</code></p>
+<p><code>&lt;serviceClass&gt;</code>接口<code>&lt;/serviceClass&gt;</code></p>
+<p><code>&lt;implementationClass&gt;</code>实现类<code>&lt;/implementationClass&gt;</code></p>
+<p><code>&lt;serviceFactory&gt;</code>如果在接口中加入标注，必须配置此项<code>&lt;/serviceFactory&gt;</code></p>
+<p>5、完成web.xml配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- XFire配置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>xfire<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span>   </span><br><span class="line">	   <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">           org.codehaus.xfire.transport.http.XFireConfigurableServlet</span><br><span class="line">        <span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>xfire<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/services/xfire/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>6、测试是否发布成功</p>
+<p>​    启动工程，在浏览器输入ip:port，查看是否显示WSDL文件，如果显示表示发布成功，否则定位看到底哪出现了问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2018/12/24/h4/" data-id="cjq1so2p70005ismdfvdqdhja" class="article-share-link">Share</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/19/h3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 huang chao<br>
+      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/category" class="mobile-nav-link">技术</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>
